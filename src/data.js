@@ -4,7 +4,7 @@ export const projects = [
     subtitle: "Part Time Contractor",
     description:
       "Engineered a sophisticated healthcare analytics tool, catering to providers and government entities. Implemented React for front-end bug resolution tasks and employed C# and xUnit testing methodologies to uphold the standards of excellence in code quality assurance. ",
-    image: "./Quest.jpeg",
+    image: "./Quest.png",
     link: "https://questanalytics.com/"
     
   },
@@ -13,7 +13,7 @@ export const projects = [
     subtitle: "Internship",
     description:
       "Utilized object-oriented programming, adhering to SOLID principles, and leveraged C# and XAML desktop technologies. Collaborated effectively within Agile teams to ensure streamlined development processes.",
-    image: "./Quest.jpeg",
+    image: "./Quest.png",
     link:"https://questanalytics.com/"
   },
   {
@@ -29,7 +29,7 @@ export const projects = [
     subtitle: "SQL Query Experience",
     description:
       "This project involved designing and implementing complex queries to extract and analyze performance metrics, trends, and insights from a large dataset of NBA game statistics.",
-    image: "./NBALogo.jpeg",
+    image: "./NBALogo.png",
     link: "https://github.com/pbillinger48/NBAStats21-22"
   },
 ];
