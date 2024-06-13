@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative">
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden p-10 flex flex-row">
+        <div className="lg:w-3/4 md:w-3/4 bg-gray-900 rounded-lg overflow-hidden p-10 flex flex-row">
           <div className="flex-shrink-0 mr-10">
             <img
               src="./ResumePic.png"
