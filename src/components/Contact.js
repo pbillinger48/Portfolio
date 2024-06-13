@@ -11,8 +11,8 @@ export default function Contact() {
             <img
               src="./ResumePic.png"
               alt="Resume"
-              width="150px"
-              height="150px"
+              width="300px"
+              height="300px"
               className="rounded-full"
               style={{ filter: "opacity(0.9)" }}
             />
