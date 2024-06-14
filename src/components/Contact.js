@@ -5,36 +5,39 @@ import React from "react";
 export default function Contact() {
   return (
     <section id="contact" className="relative">
-      <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
-        <div className="lg:w-7/8 md:w-7/8 bg-gray-900 rounded-lg overflow-hidden p-10 flex flex-row">
-          <div className="flex-shrink-0 mr-10">
+      <div className="container px-5 py-10 mx-auto flex flex-col md:flex-row items-center">
+        <div className="w-full md:w-1/2 lg:w-2/3 bg-gray-900 rounded-lg overflow-hidden p-5 md:p-10 flex flex-col md:flex-row items-center">
+          <div className="w-full md:w-1/3 mb-5 md:mb-0 flex-shrink-0">
             <img
               src="./ResumePic.png"
               alt="Resume"
-              width="600px"
-              height="600px"
+              className="w-full h-full object-cover rounded"
               style={{ filter: "opacity(0.9)" }}
             />
           </div>
-          <div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md flex-grow">
-            <div className="lg:w-1/2 px-6">
+          <div className="w-full md:w-2/3 bg-gray-900 relative flex flex-col py-6 rounded shadow-md">
+            <div className="w-full px-6 mb-4">
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 Location
               </h2>
-              <p className="mt-1">Kansas City Metro Area</p>
+              <p className="mt-1 text-white">Kansas City Metro Area</p>
             </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
+            <div className="w-full px-6 mb-4">
               <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a className="text-indigo-400 leading-relaxed">
+              <a href="mailto:pbillinger48@gmail.com" className="text-indigo-400 leading-relaxed">
                 pbillinger48@gmail.com
               </a>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
+            </div>
+            <div className="w-full px-6 mb-4">
+              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 PHONE
               </h2>
-              <p className="leading-relaxed">913-687-7936</p>
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
+              <p className="leading-relaxed text-white">913-687-7936</p>
+            </div>
+            <div className="w-full px-6">
+              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
                 RESUME
               </h2>
               <a
