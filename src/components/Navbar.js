@@ -12,6 +12,7 @@ export default function Navbar() {
           <a href="#about" className="mr-5 text-white hover:text-gray-400">About</a>
           <a href="#projects" className="mr-5 text-white hover:text-gray-400">Projects</a>
           <a href="#skills" className="mr-5 text-white hover:text-gray-400">Skills</a>
+          <a href="#education" className="mr-5 text-white hover:text-gray-400">Education</a>
           <a href="#contact" className="mr-5 text-white hover:text-gray-400">Contact Me</a>
         </nav>
         <div className="flex space-x-4">

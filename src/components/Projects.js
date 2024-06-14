@@ -14,7 +14,7 @@ export default function Projects() {
             Past Experiences
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Driven by a passion for programming and armed with a Bachelor's degree in Computer Science, I bring two years of professional experience to the table. Throughout my career, I've had the privilege of working on a diverse range of projects. Take a look at my work!
+          Driven by a passion for programming and armed with a Bachelor's degree in Computer Science and an MBA with a concentration in Data Analytics, I bring two years of professional experience to the table. Throughout my career, I've had the privilege of working on a diverse range of projects. Take a look at my work!
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
