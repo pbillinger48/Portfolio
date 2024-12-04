@@ -1,18 +1,18 @@
 export const projects = [
   {
-    title: "Quest Analytics",
-    subtitle: "Part Time Contractor",
+    title: "Netsmart",
+    subtitle: "Software Engineer",
     description:
-      "Engineered a sophisticated healthcare analytics tool, catering to providers and government entities. Implemented React for front-end bug resolution tasks and employed C# and xUnit testing methodologies to uphold the standards of excellence in code quality assurance. ",
-    image: "./Quest.png",
-    link: "https://questanalytics.com/"
+      "On the Gehrimed team, I contribute to the development of an advanced EHR product that empowers providers to deliver enhanced patient care through a comprehensive suite of tools. My work involves primarily using C# and SQL for backend development, and Vue.js and Razor for frontend development.",
+    image: "./Netsmart.jpg",
+    link: "https://ntst.com/"
     
   },
   {
     title: "Quest Analytics",
     subtitle: "Internship",
     description:
-      "Utilized object-oriented programming, adhering to SOLID principles, and leveraged C# and XAML desktop technologies. Collaborated effectively within Agile teams to ensure streamlined development processes.",
+      "Engineered a sophisticated healthcare analytics tool, catering to providers and government entities. Implemented React for front-end bug resolution tasks and employed C# and xUnit testing methodologies to uphold the standards of excellence in code quality assurance.",
     image: "./Quest.png",
     link:"https://questanalytics.com/"
   },
