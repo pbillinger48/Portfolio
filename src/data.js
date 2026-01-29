@@ -38,13 +38,13 @@ export const education = [
   {
     degree:
       "Bachelor of Science in Computer Science",
-    image: "https://1000logos.net/wp-content/uploads/2022/02/Kansas-State-Wildcats-Logo-1989.png",
+    image: "./KansasState.png",
     name: "Kansas State University"
   },
   {
     degree:
       "MBA with a concentration in Data Analytics",
-    image: "https://1000logos.net/wp-content/uploads/2022/02/Kansas-State-Wildcats-Logo-1989.png",
+    image: "./KansasState.png",
     name: "Kansas State University"
   },
 ];
