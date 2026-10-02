@@ -60,11 +60,16 @@ propagates across the site. The same file sets the global `:focus-visible` ring 
 AWS Amplify builds from [`amplify.yml`](amplify.yml): `npm ci && npm run build` on
 Node 22, publishing `dist/`. Merging to `main` deploys.
 
-`amplify.yml` also sets a `noindex` header on the resume PDF and long-lived caching on
-the hashed files in `assets/`. A build spec committed at the repo root is intended to
-take precedence over the settings stored in the Amplify console — if a build ever
-publishes the wrong directory, check the console's build settings first, since it was
-originally configured for Create React App's `build/` output.
+Two things live only in the Amplify console and are not controlled by this repo:
+
+- **Custom headers.** The `customHeaders` block in `amplify.yml` is ignored in practice,
+  so the `noindex` header on the resume PDF has to be entered under
+  App settings → Custom headers.
+- **The rewrite rule.** App settings → Rewrites and redirects holds a catch-all to
+  `/index.html` whose regex exempts only a fixed list of file extensions. Any static
+  file with an extension outside that list is served the HTML page instead. This is why
+  the NextMovie screenshot is a `.jpg` and not a `.webp`. Add the extension to that
+  regex before adding an asset in a new format.
 
 ## Outstanding
 
