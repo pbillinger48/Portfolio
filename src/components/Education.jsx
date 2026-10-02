@@ -15,11 +15,11 @@ export default function Education() {
             <img
               src={entry.image}
               alt={`${entry.school} logo`}
-              width="48"
-              height="48"
+              width="256"
+              height="144"
               loading="lazy"
               decoding="async"
-              className="h-12 w-12 shrink-0 object-contain"
+              className="h-10 w-16 shrink-0 object-contain object-left"
             />
             <div>
               <p className="font-semibold text-fg">{entry.degree}</p>
