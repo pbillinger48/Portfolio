@@ -5,9 +5,9 @@
 
 export const profile = {
   name: "Parker Billinger",
-  positioning: "Backend Software Engineer · C#/.NET, Azure, TypeScript",
+  positioning: "Software Engineer · C#/.NET, Azure, React",
   intro:
-    "I'm a backend-focused software engineer who builds production APIs, third-party integrations, and cloud services in C#/.NET and Azure. I like owning work end to end, from technical design through release and production troubleshooting. Outside work I'm building NextMovie, a movie recommendation platform. I have a B.S. in Computer Science and an MBA in Data Analytics from Kansas State, so I think about engineering in terms of cost, risk, and what matters to users.",
+    "I'm a software engineer who builds full-stack features, APIs, and cloud integrations in C#/.NET and Azure, with my deepest experience on the backend. I enjoy owning work end to end, from technical design through release and production support, and I care about building systems that are reliable and easy to maintain. With a B.S. in Computer Science and an MBA in Data Analytics from Kansas State, I bring a business lens to engineering decisions and focus on what matters most to users.",
   // Cropped from the full-frame original to a square at 640px, grayscale.
   // The hero slot caps at 320px wide so this renders at 2x on retina.
   headshot: "/headshot.jpg",
@@ -55,7 +55,7 @@ export const experience = [
     period: "Sept 2024 – Present",
     bullets: [
       "Build full-stack features for a production SaaS platform supporting thousands of peak concurrent users, spanning legacy ASP.NET MVC applications and modern .NET 8 / Azure Functions services.",
-      "Owned 2 of the platform's 5 external partner integrations, designing and building C# REST APIs that exchange data with third-party systems inside live customer workflows.",
+      "Owned 2 of the platform's external partner integrations, designing and building C# REST APIs that exchange data with third-party systems inside live customer workflows.",
       "Built a new partner integration from the ground up (API endpoints, data-import pipeline, dependency injection, SQL Server) and shipped it to production.",
       "Implemented OAuth, asynchronous message processing with Azure Service Bus, and caching with MongoDB, reliably processing tens of thousands of integration messages per day.",
       "Owned features end to end from design through production troubleshooting; onboarded 2 new engineers.",

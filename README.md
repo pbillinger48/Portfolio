@@ -1,7 +1,7 @@
 # parkerbillinger.com
 
-Personal portfolio site for Parker Billinger — a backend software engineer working in
-C#/.NET, Azure and TypeScript. Single page, no router, no backend.
+Personal portfolio site for Parker Billinger — a software engineer working in
+C#/.NET, Azure and React. Single page, no router, no backend of its own.
 
 ## Stack
 
