@@ -9,3 +9,13 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# The resume PDF carries a phone number, so keep it out of search results.
+# Deliberately NOT paired with a robots.txt Disallow: a disallowed URL is never
+# fetched, so the crawler never sees this header, and the URL can still surface
+# in results as a bare link. Allowing the fetch is what lets noindex be obeyed.
+# This does not stop a scraper that simply follows the link from the page.
+[[headers]]
+  for = "/ParkerBillingerResume.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
