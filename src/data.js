@@ -8,9 +8,9 @@ export const profile = {
   positioning: "Backend Software Engineer · C#/.NET, Azure, TypeScript",
   intro:
     "I'm a backend-focused software engineer who builds production APIs, third-party integrations, and cloud services in C#/.NET and Azure. I like owning work end to end, from technical design through release and production troubleshooting. Outside work I'm building NextMovie, a movie recommendation platform. I have a B.S. in Computer Science and an MBA in Data Analytics from Kansas State, so I think about engineering in terms of cost, risk, and what matters to users.",
-  // TODO(Parker): replace with your new headshot. Drop the file in public/ and
-  // point `src` at it; keep the 4:5 aspect ratio so the hero layout doesn't shift.
-  headshot: null,
+  // Cropped from the full-frame original to a square at 640px, grayscale.
+  // The hero slot caps at 320px wide so this renders at 2x on retina.
+  headshot: "/headshot.jpg",
   headshotAlt: "Parker Billinger",
 };
 

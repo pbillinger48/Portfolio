@@ -7,7 +7,7 @@ function Headshot() {
   if (!profile.headshot) {
     return (
       <div
-        className="flex aspect-[4/5] w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
+        className="flex aspect-square w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
         role="img"
         aria-label="Placeholder for a headshot photo"
       >
@@ -24,8 +24,8 @@ function Headshot() {
       src={profile.headshot}
       alt={profile.headshotAlt}
       width="640"
-      height="800"
-      className="aspect-[4/5] w-full rounded object-cover object-center"
+      height="640"
+      className="aspect-square w-full rounded object-cover object-center"
     />
   );
 }
@@ -69,7 +69,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="mx-auto w-2/3 max-w-xs md:w-full md:max-w-none">
+        <div className="mx-auto w-2/3 max-w-[320px] md:w-full">
           <Headshot />
         </div>
       </div>
