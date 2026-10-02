@@ -10,7 +10,7 @@ C#/.NET, Azure and React. Single page, no router, no backend of its own.
 - **[Tailwind CSS v4](https://tailwindcss.com)** — configured CSS-first in
   [`src/index.css`](src/index.css); there is no `tailwind.config.js`
 - **[react-icons](https://react-icons.github.io/react-icons/)** — social and UI glyphs
-- Deployed on [Netlify](https://netlify.com)
+- Deployed on [AWS Amplify](https://aws.amazon.com/amplify/)
 
 ## Getting started
 
@@ -57,9 +57,14 @@ propagates across the site. The same file sets the global `:focus-visible` ring 
 
 ## Deployment
 
-Netlify builds from [`netlify.toml`](netlify.toml): `npm run build`, publishing `dist/`
-on Node 22, with a catch-all redirect to `/index.html`. Pushing to the default branch
-deploys.
+AWS Amplify builds from [`amplify.yml`](amplify.yml): `npm ci && npm run build` on
+Node 22, publishing `dist/`. Merging to `main` deploys.
+
+`amplify.yml` also sets a `noindex` header on the resume PDF and long-lived caching on
+the hashed files in `assets/`. A build spec committed at the repo root is intended to
+take precedence over the settings stored in the Amplify console — if a build ever
+publishes the wrong directory, check the console's build settings first, since it was
+originally configured for Create React App's `build/` output.
 
 ## Outstanding
 
