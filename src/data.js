@@ -21,8 +21,10 @@ export const featured = {
   // TODO(Parker): add the live URL once the Azure deployment is up. While this is
   // null the card shows only the repo link instead of a dead "live site" button.
   liveUrl: null,
-  // Cropped from the original capture to 16:10 and converted to WebP.
-  screenshot: "/nextmovie.webp",
+  // Cropped from the original capture to 16:10. JPEG rather than WebP: the
+  // Amplify rewrite rule only exempts a fixed list of extensions from the
+  // catch-all to /index.html, and webp is not on it, so .webp served HTML.
+  screenshot: "/nextmovie.jpg",
   screenshotAlt:
     "The NextMovie 'What to watch' feed: recommended films each showing its rating, streaming availability, and the reasons it was picked",
   stack: [

@@ -21,6 +21,13 @@ frontend:
     paths:
       - node_modules/**/*
 
+# NOTE: this customHeaders block is NOT currently taking effect. Verified
+# against the live site: the resume PDF comes back with no X-Robots-Tag and
+# the assets carry Amplify's default cache-control, not the values below.
+# Amplify honours the build phases above but appears to ignore these, so the
+# same rules must be entered in the Amplify console under
+# App settings -> Custom headers, which is authoritative. Kept here as the
+# source of truth for what the console should contain.
 customHeaders:
   # The resume PDF carries a phone number, so keep it out of search results.
   # Deliberately NOT paired with a robots.txt Disallow: a disallowed URL is
