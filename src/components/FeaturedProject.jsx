@@ -8,11 +8,11 @@ function Screenshot() {
   if (!featured.screenshot) {
     return (
       <div
-        className="flex aspect-[16/9] w-full items-center justify-center rounded border border-dashed border-gray-700 bg-gray-900/60 p-6 text-center"
+        className="flex aspect-[16/9] w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
         role="img"
         aria-label="Placeholder for a NextMovie screenshot"
       >
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-fg-faint">
           Screenshot placeholder
           <br />
           <span className="text-xs">TODO(Parker): add NextMovie screenshot</span>
@@ -28,7 +28,7 @@ function Screenshot() {
       height="720"
       loading="lazy"
       decoding="async"
-      className="aspect-[16/9] w-full rounded border border-gray-800 object-cover"
+      className="aspect-[16/9] w-full rounded border border-edge object-cover"
     />
   );
 }
@@ -36,7 +36,7 @@ function Screenshot() {
 export default function FeaturedProject() {
   return (
     <Section id="nextmovie" label="Featured project" title={featured.title}>
-      <p className="max-w-prose text-lg text-gray-200">{featured.tagline}</p>
+      <p className="max-w-prose text-lg text-fg">{featured.tagline}</p>
 
       <div className="mt-8">
         <Screenshot />
@@ -44,13 +44,13 @@ export default function FeaturedProject() {
 
       <div className="mt-10 grid gap-10 md:grid-cols-[2fr_1fr]">
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="label-eyebrow text-fg-muted">
             Highlights
           </h3>
           <ul className="mt-4 space-y-3">
             {featured.highlights.map((item) => (
-              <li key={item} className="flex gap-3 leading-relaxed text-gray-300">
-                <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-300" />
+              <li key={item} className="flex gap-3 leading-relaxed text-fg-muted">
+                <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
                 <span>{item}</span>
               </li>
             ))}
@@ -58,20 +58,20 @@ export default function FeaturedProject() {
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="label-eyebrow text-fg-muted">
             Stack
           </h3>
           <ul className="mt-4 flex flex-wrap gap-2">
             {featured.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded border border-gray-800 bg-gray-900/60 px-2.5 py-1 text-sm text-gray-300"
+                className="rounded border border-edge bg-surface px-2.5 py-1 text-sm text-fg-muted"
               >
                 {tech}
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-sm leading-relaxed text-gray-400">
+          <p className="mt-4 text-sm leading-relaxed text-fg-muted">
             {featured.stackNote}
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function FeaturedProject() {
           href={featured.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded border border-gray-700 px-5 py-2.5 text-gray-200 hover:border-gray-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          className="inline-flex items-center gap-2 rounded border border-edge-strong px-5 py-2.5 text-fg hover:border-accent-dim"
         >
           <FaGithub aria-hidden="true" /> View source
         </a>
@@ -92,7 +92,7 @@ export default function FeaturedProject() {
             href={featured.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded bg-amber-300 px-5 py-2.5 font-medium text-gray-950 hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            className="rounded bg-accent px-5 py-2.5 font-medium text-ink hover:bg-accent-bright"
           >
             Visit site
           </a>

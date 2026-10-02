@@ -7,11 +7,11 @@ function Headshot() {
   if (!profile.headshot) {
     return (
       <div
-        className="flex aspect-[4/5] w-full items-center justify-center rounded border border-dashed border-gray-700 bg-gray-900/60 p-6 text-center"
+        className="flex aspect-[4/5] w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
         role="img"
         aria-label="Placeholder for a headshot photo"
       >
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-fg-faint">
           Headshot placeholder
           <br />
           <span className="text-xs">TODO(Parker): add photo</span>
@@ -35,19 +35,19 @@ export default function Hero() {
     <section id="top">
       <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 md:grid-cols-[3fr_2fr] md:gap-14">
         <div>
-          <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h1 className="text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
             {profile.name}
           </h1>
-          <p className="mt-3 text-base text-amber-300 sm:text-lg">
+          <p className="mt-3 text-base text-accent sm:text-lg">
             {profile.positioning}
           </p>
-          <p className="mt-6 max-w-prose leading-relaxed text-gray-300">
+          <p className="mt-6 max-w-prose leading-relaxed text-fg-muted">
             {profile.intro}
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={contact.resume}
-              className="rounded bg-amber-300 px-5 py-2.5 font-medium text-gray-950 hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="rounded bg-accent px-5 py-2.5 font-medium text-ink hover:bg-accent-bright"
             >
               Résumé
             </a>
@@ -55,7 +55,7 @@ export default function Hero() {
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded border border-gray-700 px-5 py-2.5 text-gray-200 hover:border-gray-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="inline-flex items-center gap-2 rounded border border-edge-strong px-5 py-2.5 text-fg hover:border-accent-dim"
             >
               <FaGithub aria-hidden="true" /> GitHub
             </a>
@@ -63,7 +63,7 @@ export default function Hero() {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded border border-gray-700 px-5 py-2.5 text-gray-200 hover:border-gray-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="inline-flex items-center gap-2 rounded border border-edge-strong px-5 py-2.5 text-fg hover:border-accent-dim"
             >
               <FaLinkedin aria-hidden="true" /> LinkedIn
             </a>

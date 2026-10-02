@@ -12,7 +12,7 @@ import { profile } from "./data";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-300">
+    <div className="min-h-screen bg-ink text-fg-muted">
       <Navbar />
       <main>
         <Hero />
@@ -23,8 +23,8 @@ export default function App() {
         <Education />
         <Contact />
       </main>
-      <footer className="border-t border-gray-800">
-        <div className="mx-auto max-w-5xl px-5 py-8 text-sm text-gray-500 sm:px-8">
+      <footer className="border-t border-edge">
+        <div className="mx-auto max-w-5xl px-5 py-8 text-sm text-fg-faint sm:px-8">
           © {new Date().getFullYear()} {profile.name}
         </div>
       </footer>

@@ -10,7 +10,7 @@ export default function Education() {
         {education.map((entry) => (
           <li
             key={`${entry.school}-${entry.degree}`}
-            className="flex items-center gap-4 rounded border border-gray-800 bg-gray-900/40 p-6"
+            className="flex items-center gap-4 rounded border border-edge bg-surface p-6"
           >
             <img
               src={entry.image}
@@ -22,8 +22,8 @@ export default function Education() {
               className="h-12 w-12 shrink-0 object-contain"
             />
             <div>
-              <p className="font-semibold text-white">{entry.degree}</p>
-              <p className="mt-1 text-sm text-gray-400">
+              <p className="font-semibold text-fg">{entry.degree}</p>
+              <p className="mt-1 text-sm text-fg-muted">
                 {entry.school} · {entry.year}
               </p>
             </div>

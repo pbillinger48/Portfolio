@@ -29,10 +29,10 @@ function CopyEmailButton() {
     <button
       type="button"
       onClick={handleCopy}
-      className="inline-flex items-center gap-2 rounded border border-gray-700 px-3 py-1.5 text-sm text-gray-200 hover:border-gray-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+      className="inline-flex items-center gap-2 rounded border border-edge-strong px-3 py-1.5 text-sm text-fg hover:border-accent-dim"
     >
       {copied ? (
-        <FaCheck aria-hidden="true" className="text-amber-300" />
+        <FaCheck aria-hidden="true" className="text-accent" />
       ) : (
         <FaRegCopy aria-hidden="true" />
       )}
@@ -46,27 +46,27 @@ export default function Contact() {
     <Section id="contact" label="Contact" title="Get in touch">
       <div className="grid gap-10 sm:grid-cols-2">
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="label-eyebrow text-fg-muted">
             Email
           </h3>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${contact.email}`}
-              className="text-gray-100 underline decoration-gray-700 underline-offset-4 hover:decoration-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="text-fg underline decoration-edge-strong underline-offset-4 hover:decoration-accent"
             >
               {contact.email}
             </a>
             <CopyEmailButton />
           </div>
 
-          <h3 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="mt-8 label-eyebrow text-fg-muted">
             Location
           </h3>
-          <p className="mt-3 text-gray-300">{contact.location}</p>
+          <p className="mt-3 text-fg-muted">{contact.location}</p>
         </div>
 
         <div>
-          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="label-eyebrow text-fg-muted">
             Elsewhere
           </h3>
           <ul className="mt-3 space-y-3">
@@ -75,7 +75,7 @@ export default function Contact() {
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+                className="inline-flex items-center gap-2 text-fg hover:text-accent"
               >
                 <FaLinkedin aria-hidden="true" /> LinkedIn
               </a>
@@ -85,20 +85,20 @@ export default function Contact() {
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+                className="inline-flex items-center gap-2 text-fg hover:text-accent"
               >
                 <FaGithub aria-hidden="true" /> GitHub
               </a>
             </li>
           </ul>
 
-          <h3 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          <h3 className="mt-8 label-eyebrow text-fg-muted">
             Résumé
           </h3>
           <p className="mt-3">
             <a
               href={contact.resume}
-              className="text-gray-200 underline decoration-gray-700 underline-offset-4 hover:decoration-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="text-fg underline decoration-edge-strong underline-offset-4 hover:decoration-accent"
             >
               Download PDF
             </a>

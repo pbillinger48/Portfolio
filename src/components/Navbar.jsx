@@ -14,11 +14,11 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="border-b border-gray-800">
+    <header className="border-b border-edge">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 py-4 sm:px-8 md:flex-row">
         <a
           href="#top"
-          className="font-semibold tracking-tight text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          className="font-semibold tracking-tight text-fg"
         >
           {profile.name}
         </a>
@@ -30,7 +30,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              className="text-fg-muted hover:text-fg"
             >
               {link.label}
             </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            className="text-fg-muted hover:text-fg"
           >
             <FaLinkedin size={20} aria-hidden="true" />
             <span className="sr-only">LinkedIn</span>
@@ -50,7 +50,7 @@ export default function Navbar() {
             href={contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            className="text-fg-muted hover:text-fg"
           >
             <FaGithub size={20} aria-hidden="true" />
             <span className="sr-only">GitHub</span>
