@@ -1,46 +1,57 @@
-// src/components/Projects.js
+// src/components/Projects.jsx
 
-import React from "react";
-import { projects } from "../data";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import Section from "./Section";
+import { otherProjects, earlierWork } from "../data";
 
 export default function Projects() {
   return (
-    <section id="projects" className="text-gray-400 bg-gray-900 body-font">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-        <div className="flex flex-col w-full mb-20">
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Past Experiences
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-          Driven by a passion for programming and armed with a Bachelor's degree in Computer Science and an MBA with a concentration in Data Analytics, I bring two years of professional experience to the table. Throughout my career, I've had the privilege of working on a diverse range of projects. Take a look at my work!
-          </p>
-        </div>
-        <div className="flex flex-wrap -m-4">
-          {projects.map((project) => (
+    <Section id="projects" label="Other projects" title="Other work">
+      <ul className="grid gap-4 sm:grid-cols-2">
+        {otherProjects.map((project) => (
+          <li key={project.link}>
             <a
               href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4">
-              <div className="flex relative">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  src={project.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block h-full rounded border border-gray-800 bg-gray-900/40 p-6 hover:border-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            >
+              <h3 className="flex items-center gap-2 font-semibold text-white">
+                {project.title}
+                <FaArrowUpRightFromSquare
+                  aria-hidden="true"
+                  className="h-3 w-3 text-gray-500 group-hover:text-amber-300"
                 />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-white mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
-                </div>
-              </div>
+              </h3>
+              <p className="mt-2 leading-relaxed text-gray-300">
+                {project.description}
+              </p>
             </a>
-          ))}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-10 border-t border-gray-800 pt-8">
+        <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+          Earlier work
+        </h3>
+        <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <a
+            href={earlierWork.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-white underline decoration-gray-700 underline-offset-4 hover:decoration-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          >
+            {earlierWork.title}
+          </a>
+          <span className="text-sm text-gray-400">
+            {earlierWork.year} · {earlierWork.context}
+          </span>
         </div>
+        <p className="mt-2 max-w-prose leading-relaxed text-gray-400">
+          {earlierWork.description}
+        </p>
       </div>
-    </section>
+    </Section>
   );
 }

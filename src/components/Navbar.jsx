@@ -1,26 +1,59 @@
-import React from "react";
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+// src/components/Navbar.jsx
+
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { profile, contact } from "../data";
+
+const links = [
+  { href: "#nextmovie", label: "NextMovie" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#education", label: "Education" },
+  { href: "#contact", label: "Contact" },
+];
 
 export default function Navbar() {
   return (
-    <header className="bg-gray-800">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="title-font font-medium text-white mb-4 md:mb-0">
-          <span className="ml-3 text-xl">Parker Billinger</span>
+    <header className="border-b border-gray-800">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-5 py-4 sm:px-8 md:flex-row">
+        <a
+          href="#top"
+          className="font-semibold tracking-tight text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+        >
+          {profile.name}
         </a>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a href="#about" className="mr-5 text-white hover:text-gray-400">About</a>
-          <a href="#projects" className="mr-5 text-white hover:text-gray-400">Projects</a>
-          <a href="#skills" className="mr-5 text-white hover:text-gray-400">Skills</a>
-          <a href="#education" className="mr-5 text-white hover:text-gray-400">Education</a>
-          <a href="#contact" className="mr-5 text-white hover:text-gray-400">Contact Me</a>
+        <nav
+          aria-label="Sections"
+          className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:ml-auto"
+        >
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
-        <div className="flex space-x-4">
-          <a href="https://www.linkedin.com/in/parker-billinger-209bb2231/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-            <FaLinkedin size={24} />
+        <div className="flex items-center gap-4 md:ml-6">
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          >
+            <FaLinkedin size={20} aria-hidden="true" />
+            <span className="sr-only">LinkedIn</span>
           </a>
-          <a href="https://github.com/pbillinger48" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
-            <FaGithub size={24} />
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+          >
+            <FaGithub size={20} aria-hidden="true" />
+            <span className="sr-only">GitHub</span>
           </a>
         </div>
       </div>

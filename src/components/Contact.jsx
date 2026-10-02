@@ -1,56 +1,110 @@
-// src/components/Contact.js
+// src/components/Contact.jsx
 
-import React from "react";
+import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaRegCopy, FaCheck } from "react-icons/fa6";
+import Section from "./Section";
+import { contact } from "../data";
+
+function CopyEmailButton() {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  async function handleCopy() {
+    try {
+      await navigator.clipboard.writeText(contact.email);
+      setCopied(true);
+    } catch {
+      // Clipboard API unavailable or blocked. The address is selectable text
+      // right next to this button, so there is still a way to copy it.
+      setCopied(false);
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="inline-flex items-center gap-2 rounded border border-gray-700 px-3 py-1.5 text-sm text-gray-200 hover:border-gray-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+    >
+      {copied ? (
+        <FaCheck aria-hidden="true" className="text-amber-300" />
+      ) : (
+        <FaRegCopy aria-hidden="true" />
+      )}
+      {copied ? "Copied" : "Copy"}
+    </button>
+  );
+}
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative">
-      <div className="container px-5 py-10 mx-auto flex flex-col md:flex-row items-center">
-        <div className="w-full md:w-1/2 lg:w-2/3 bg-gray-900 rounded-lg overflow-hidden p-5 md:p-10 flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/3 mb-5 md:mb-0 flex-shrink-0">
-            <img
-              src="./ResumePic.png"
-              alt="Resume"
-              className="w-full h-full object-cover rounded"
-              style={{ filter: "opacity(0.9)" }}
-            />
+    <Section id="contact" label="Contact" title="Get in touch">
+      <div className="grid gap-10 sm:grid-cols-2">
+        <div>
+          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+            Email
+          </h3>
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <a
+              href={`mailto:${contact.email}`}
+              className="text-gray-100 underline decoration-gray-700 underline-offset-4 hover:decoration-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            >
+              {contact.email}
+            </a>
+            <CopyEmailButton />
           </div>
-          <div className="w-full md:w-2/3 bg-gray-900 relative flex flex-col py-6 rounded shadow-md">
-            <div className="w-full px-6 mb-4">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                Location
-              </h2>
-              <p className="mt-1 text-white">Kansas City Metro Area</p>
-            </div>
-            <div className="w-full px-6 mb-4">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                EMAIL
-              </h2>
-              <a href="mailto:pbillinger48@gmail.com" className="text-indigo-400 leading-relaxed">
-                pbillinger48@gmail.com
-              </a>
-            </div>
-            <div className="w-full px-6 mb-4">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                PHONE
-              </h2>
-              <p className="leading-relaxed text-white">913-687-7936</p>
-            </div>
-            <div className="w-full px-6">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                RESUME
-              </h2>
+
+          <h3 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+            Location
+          </h3>
+          <p className="mt-3 text-gray-300">{contact.location}</p>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+            Elsewhere
+          </h3>
+          <ul className="mt-3 space-y-3">
+            <li>
               <a
-                href="./ParkerBillingerResume.pdf"
-                download="Parker_Billinger_Resume.pdf"
-                className="text-indigo-400 leading-relaxed"
+                href={contact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
               >
-                Download Resume
+                <FaLinkedin aria-hidden="true" /> LinkedIn
               </a>
-            </div>
-          </div>
+            </li>
+            <li>
+              <a
+                href={contact.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+              >
+                <FaGithub aria-hidden="true" /> GitHub
+              </a>
+            </li>
+          </ul>
+
+          <h3 className="mt-8 text-xs font-semibold tracking-[0.2em] text-gray-400 uppercase">
+            Résumé
+          </h3>
+          <p className="mt-3">
+            <a
+              href={contact.resume}
+              className="text-gray-200 underline decoration-gray-700 underline-offset-4 hover:decoration-amber-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+            >
+              Download PDF
+            </a>
+          </p>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

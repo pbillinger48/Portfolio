@@ -1,38 +1,35 @@
-// src/components/Education.js
+// src/components/Education.jsx
 
-import React from "react";
+import Section from "./Section";
 import { education } from "../data";
 
 export default function Education() {
   return (
-    <section id="education">
-      <div className="container px-5 py-10 mx-auto text-center">
-        <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-12">
-          Education
-        </h1>
-        <div className="flex flex-wrap m-4">
-          {education.map((school) => (
-            <div className="p-4 md:w-1/2 w-full">
-              <div className="h-full bg-gray-800/40 p-8 rounded">
-                
-                <p className="leading-relaxed mb-6">{school.degree}</p>
-                <div className="inline-flex items-center">
-                  <img
-                    alt="testimonial"
-                    src={school.image}
-                    className="w-12 rounded-full flex-shrink-0 object-cover object-center"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-white">
-                      {school.name}
-                    </span>
-                  </span>
-                </div>
-              </div>
+    <Section id="education" label="Education" title="Education">
+      <ul className="grid gap-4 sm:grid-cols-2">
+        {education.map((entry) => (
+          <li
+            key={`${entry.school}-${entry.degree}`}
+            className="flex items-center gap-4 rounded border border-gray-800 bg-gray-900/40 p-6"
+          >
+            <img
+              src={entry.image}
+              alt={`${entry.school} logo`}
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
+              className="h-12 w-12 shrink-0 object-contain"
+            />
+            <div>
+              <p className="font-semibold text-white">{entry.degree}</p>
+              <p className="mt-1 text-sm text-gray-400">
+                {entry.school} · {entry.year}
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

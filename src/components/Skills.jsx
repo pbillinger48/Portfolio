@@ -1,29 +1,30 @@
-// src/components/Skills.js
+// src/components/Skills.jsx
 
-import React from "react";
-import { skills } from "../data";
+import Section from "./Section";
+import { skillGroups } from "../data";
 
 export default function Skills() {
   return (
-    <section id="skills">
-      <div className="container px-5 py-10 mx-auto">
-        <div className="text-center mb-20">
-          <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
-            Skills &amp; Technologies
-          </h1>       
-        </div>
-        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-          {skills.map((skill) => (
-            <div key={skill} className="p-2 sm:w-1/2 w-full">
-              <div className="bg-gray-800 rounded flex p-4 h-full items-center">
-                <span className="title-font font-medium text-white">
-                  {skill}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+    <Section id="skills" label="Skills" title="Tools I work with">
+      <div className="grid gap-8 sm:grid-cols-2">
+        {skillGroups.map((group) => (
+          <div key={group.label}>
+            <h3 className="text-xs font-semibold tracking-[0.2em] text-amber-300 uppercase">
+              {group.label}
+            </h3>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <li
+                  key={item}
+                  className="rounded border border-gray-800 bg-gray-900/60 px-2.5 py-1 text-sm text-gray-300"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
