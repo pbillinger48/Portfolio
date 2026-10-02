@@ -21,9 +21,10 @@ export const featured = {
   // TODO(Parker): add the live URL once the Azure deployment is up. While this is
   // null the card shows only the repo link instead of a dead "live site" button.
   liveUrl: null,
-  // TODO(Parker): add a NextMovie screenshot in public/ and point `src` at it.
-  screenshot: null,
-  screenshotAlt: "The NextMovie recommendation feed",
+  // Cropped from the original capture to 16:10 and converted to WebP.
+  screenshot: "/nextmovie.webp",
+  screenshotAlt:
+    "The NextMovie 'What to watch' feed: recommended films each showing its rating, streaming availability, and the reasons it was picked",
   stack: [
     "ASP.NET Core (.NET 10)",
     "C#",

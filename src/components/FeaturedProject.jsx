@@ -8,7 +8,7 @@ function Screenshot() {
   if (!featured.screenshot) {
     return (
       <div
-        className="flex aspect-[16/9] w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
+        className="flex aspect-[16/10] w-full items-center justify-center rounded border border-dashed border-edge-strong bg-surface p-6 text-center"
         role="img"
         aria-label="Placeholder for a NextMovie screenshot"
       >
@@ -24,11 +24,11 @@ function Screenshot() {
     <img
       src={featured.screenshot}
       alt={featured.screenshotAlt}
-      width="1280"
-      height="720"
+      width="1920"
+      height="1200"
       loading="lazy"
       decoding="async"
-      className="aspect-[16/9] w-full rounded border border-edge object-cover"
+      className="aspect-[16/10] w-full rounded border border-edge object-cover"
     />
   );
 }
