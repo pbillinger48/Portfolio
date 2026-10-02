@@ -1,65 +1,149 @@
-export const projects = [
+// src/data.js
+//
+// All page content lives here. Components are presentational; edit copy in this
+// file rather than in JSX.
+
+export const profile = {
+  name: "Parker Billinger",
+  positioning: "Software Engineer · C#/.NET, Azure, React",
+  intro:
+    "I'm a software engineer who builds full-stack features, APIs, and cloud integrations in C#/.NET and Azure, with my deepest experience on the backend. I enjoy owning work end to end, from technical design through release and production support, and I care about building systems that are reliable and easy to maintain. With a B.S. in Computer Science and an MBA in Data Analytics from Kansas State, I bring a business lens to engineering decisions and focus on what matters most to users.",
+  // Cropped from the full-frame original to a square at 640px, grayscale.
+  // The hero slot caps at 320px wide so this renders at 2x on retina.
+  headshot: "/headshot.jpg",
+  headshotAlt: "Parker Billinger",
+};
+
+export const featured = {
+  title: "NextMovie",
+  tagline: "Finds the best movie you haven't seen that you can stream tonight.",
+  repo: "https://github.com/pbillinger48/NextMovie",
+  // TODO(Parker): add the live URL once the Azure deployment is up. While this is
+  // null the card shows only the repo link instead of a dead "live site" button.
+  liveUrl: null,
+  // Cropped from the original capture to 16:10 and converted to WebP.
+  screenshot: "/nextmovie.webp",
+  screenshotAlt:
+    "The NextMovie 'What to watch' feed: recommended films each showing its rating, streaming availability, and the reasons it was picked",
+  stack: [
+    "ASP.NET Core (.NET 10)",
+    "C#",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
+    "EF Core",
+    "Docker",
+    "GitHub Actions",
+  ],
+  stackNote:
+    "pnpm + Turborepo monorepo. Azure deployment with Terraform in progress.",
+  highlights: [
+    "Recommendation engine that pools candidates from TMDB relatedness and ranks them against a taste profile computed from the user's own ratings, with an explanation for every pick.",
+    "Offline evaluation harness (hold-out Recall@N, MRR, cross-user list overlap) that caught personalization failures the unit tests passed.",
+    "Per-region streaming availability, cached daily.",
+    "Background import pipeline matching Letterboxd exports to TMDB, with a manual review queue for ambiguous matches.",
+    "JWT sessions with refresh tokens and Google sign-in.",
+    "490+ automated tests, CI on every pull request, and 13 written architecture decision records.",
+  ],
+};
+
+export const experience = [
   {
-    title: "Netsmart",
-    subtitle: "Software Engineer",
-    description:
-      "On the Gehrimed team, I contribute to the development of an advanced EHR product that empowers providers to deliver enhanced patient care through a comprehensive suite of tools. My work involves primarily using C# and SQL for backend development, and Vue.js and Razor for frontend development.",
-    image: "./Netsmart.jpg",
-    link: "https://ntst.com/"
-    
+    company: "Netsmart",
+    role: "Software Engineer",
+    period: "Sept 2024 – Present",
+    bullets: [
+      "Build full-stack features for a production SaaS platform supporting thousands of peak concurrent users, spanning legacy ASP.NET MVC applications and modern .NET 8 / Azure Functions services.",
+      "Owned 2 of the platform's external partner integrations, designing and building C# REST APIs that exchange data with third-party systems inside live customer workflows.",
+      "Built a new partner integration from the ground up (API endpoints, data-import pipeline, dependency injection, SQL Server) and shipped it to production.",
+      "Implemented OAuth, asynchronous message processing with Azure Service Bus, and caching with MongoDB, reliably processing tens of thousands of integration messages per day.",
+      "Owned features end to end from design through production troubleshooting; onboarded 2 new engineers.",
+    ],
   },
   {
-    title: "Quest Analytics",
-    subtitle: "Internship",
+    company: "Quest Analytics",
+    role: "Software Engineer Intern / Contractor",
+    period: "2022 – May 2024",
+    bullets: [
+      "Developed and maintained a C#/.NET data-analysis application used by CMS (a federal agency) and large healthcare networks to evaluate network adequacy.",
+      "Fixed defects and shipped features across a legacy desktop application (C#, XAML) and a React front end, with xUnit tests.",
+    ],
+  },
+];
+
+export const otherProjects = [
+  {
+    title: "NBA Stats",
     description:
-      "Engineered a sophisticated healthcare analytics tool, catering to providers and government entities. Implemented React for front-end bug resolution tasks and employed C# and xUnit testing methodologies to uphold the standards of excellence in code quality assurance.",
-    image: "./Quest.png",
-    link:"https://questanalytics.com/"
+      "SQL queries analyzing performance metrics and trends across a season of NBA game statistics.",
+    link: "https://github.com/pbillinger48/NBAStats21-22",
+  },
+];
+
+export const earlierWork = {
+  title: "NexdMovie",
+  year: "2023",
+  context: "Senior design project",
+  description:
+    "React + Django/Python web app generating film recommendations from a Letterboxd profile. NextMovie grew out of this.",
+  link: "https://github.com/pbillinger48/NexdMovie",
+};
+
+export const skillGroups = [
+  {
+    label: "Languages",
+    items: ["C#", "TypeScript", "Python", "SQL", "JavaScript", "Java"],
   },
   {
-    title: "NexdMovie",
-    subtitle: "Senior Design Project",
-    description:
-      "Built a responsive web application that allows users to use their LetterBoxd user profiles to create a dynamic list of recommendations. I developed the front end using React, ensuring a seamless user experience. For the back end, I utilized Django and Python to create a REST API to handle data requests and interactions with an SQLite database.",
-    image: "./NexdMovie.png",
-    link: "https://github.com/pbillinger48/NexdMovie"
+    label: "Backend & cloud",
+    items: [
+      "ASP.NET Core",
+      ".NET 8/10",
+      "Entity Framework",
+      "Azure Functions",
+      "Azure Service Bus",
+      "REST API design",
+      "OAuth",
+      "JWT",
+    ],
   },
   {
-    title: "NBA Stats Project",
-    subtitle: "SQL Query Experience",
-    description:
-      "This project involved designing and implementing complex queries to extract and analyze performance metrics, trends, and insights from a large dataset of NBA game statistics.",
-    image: "./NBALogo.png",
-    link: "https://github.com/pbillinger48/NBAStats21-22"
+    label: "Frontend",
+    items: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    label: "Data & tooling",
+    items: [
+      "SQL Server",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "Git",
+    ],
   },
 ];
 
 export const education = [
   {
-    degree:
-      "Bachelor of Science in Computer Science",
-    image: "./KansasState.png",
-    name: "Kansas State University"
+    degree: "B.S., Computer Science",
+    year: "2024",
+    school: "Kansas State University",
+    image: "/KansasState.png",
   },
   {
-    degree:
-      "MBA with a concentration in Data Analytics",
-    image: "./KansasState.png",
-    name: "Kansas State University"
+    degree: "M.B.A., Data Analytics focus",
+    year: "2024",
+    school: "Kansas State University",
+    image: "/KansasState.png",
   },
 ];
 
-export const skills = [
-  "C#",
-  "React",
-  "Java",
-  ".Net Framework",
-  "JavaScript",
-  "Python",
-  "Object Oriented Programming",
-  "SQL",
-  "HTML",
-  "CSS",
-  "Django",
-  "Software Architecture Principals"
-];
+export const contact = {
+  email: "pbillinger48@gmail.com",
+  linkedin: "https://www.linkedin.com/in/parker-billinger-209bb2231/",
+  github: "https://github.com/pbillinger48",
+  resume: "/ParkerBillingerResume.pdf",
+  location: "Kansas City, MO",
+};

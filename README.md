@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# parkerbillinger.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio site for Parker Billinger — a software engineer working in
+C#/.NET, Azure and React. Single page, no router, no backend of its own.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- **[Vite](https://vite.dev)** — dev server and build
+- **[React 19](https://react.dev)**
+- **[Tailwind CSS v4](https://tailwindcss.com)** — configured CSS-first in
+  [`src/index.css`](src/index.css); there is no `tailwind.config.js`
+- **[react-icons](https://react-icons.github.io/react-icons/)** — social and UI glyphs
+- Deployed on [AWS Amplify](https://aws.amazon.com/amplify/)
 
-### `yarn start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Requires Node 22+.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+npm install
+npm run dev      # dev server at http://localhost:5173
+```
 
-### `yarn test`
+| Script | Does |
+| --- | --- |
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the built `dist/` locally, to check the real output |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Where things live
 
-### `yarn build`
+**All page copy is in [`src/data.js`](src/data.js)** — profile, featured project,
+experience, projects, skills, education and contact details. Edit content there rather
+than in the components; everything under [`src/components/`](src/components/) is
+presentational and reads from it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+index.html              page shell, meta and Open Graph tags
+src/main.jsx            React entry
+src/App.jsx             section order
+src/data.js             all content
+src/index.css           Tailwind import + design tokens (@theme)
+src/components/
+  Section.jsx           shared section wrapper (eyebrow + heading)
+  Navbar.jsx  Hero.jsx  FeaturedProject.jsx  Experience.jsx
+  Projects.jsx  Skills.jsx  Education.jsx  Contact.jsx
+public/                 static assets copied verbatim into dist/
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Design tokens
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Colours, fonts and the label tracking are declared once in the `@theme` block at the top
+of [`src/index.css`](src/index.css) and consumed as ordinary Tailwind utilities
+(`bg-ink`, `text-fg-muted`, `border-edge`, `text-accent`, …). Change a value there and it
+propagates across the site. The same file sets the global `:focus-visible` ring and the
+`prefers-reduced-motion` rules.
 
-### `yarn eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+AWS Amplify builds from [`amplify.yml`](amplify.yml): `npm ci && npm run build` on
+Node 22, publishing `dist/`. Merging to `main` deploys.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`amplify.yml` also sets a `noindex` header on the resume PDF and long-lived caching on
+the hashed files in `assets/`. A build spec committed at the repo root is intended to
+take precedence over the settings stored in the Amplify console — if a build ever
+publishes the wrong directory, check the console's build settings first, since it was
+originally configured for Create React App's `build/` output.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Outstanding
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Items marked `TODO(Parker)` in the source:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Headshot** — add the image to `public/` and set `profile.headshot` in `src/data.js`
+- **NextMovie screenshot** — add to `public/` and set `featured.screenshot`
+- **NextMovie live URL** — set `featured.liveUrl`; a "Visit site" button appears once it
+  is non-null
+- **Canonical / OG URL and share image** — `index.html` has a commented-out block with
+  the `canonical`, `og:url` and `og:image` tags. Add a 1200×630 `public/og-image.png`,
+  then uncomment it and swap `https://example.com` for the real origin. These must be
+  absolute URLs — link unfurlers ignore relative ones, which is why they ship commented
+  out rather than with a placeholder
