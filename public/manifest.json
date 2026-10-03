@@ -1,11 +1,16 @@
 {
+  "name": "Parker Billinger",
   "short_name": "Parker Billinger",
-  "name": "Parker Billinger — Backend Software Engineer",
   "icons": [
     {
-      "src": "/PBLogo.png",
+      "src": "/logo192.png",
       "type": "image/png",
-      "sizes": "500x500"
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/",
